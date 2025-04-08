@@ -16,9 +16,35 @@ let qrText = document.getElementById("qrText");
   imgBox.classList.add('show-img');
 
   document.getElementById("resetbutton").style.display = "inline-block";
+  document.getElementById("downloadbutton").style.display = "inline-block";
 }
 
 
 function resetPage () {
   location.reload();
+}
+
+function downloadQR() {
+  const image = new Image();
+  image.crossOrigin = "anonymous"; 
+
+  image.onload = function () {
+    const canvas = document.createElement('canvas');
+    canvas.width = image.width;
+    canvas.height = image.height;
+
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(image, 0, 0);
+
+    canvas.toBlob(function (blob) {
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'qr-code.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
+  image.src = qrImage.src;
 }
