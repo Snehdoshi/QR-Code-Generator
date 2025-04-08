@@ -4,12 +4,21 @@ let qrText = document.getElementById("qrText");
 
 
  function generateQR () {
-
-  if (qrText.value.trim() === "") {
+ const userInput = qrText.value.trim();
+  if (userInput === "") {
     alert("Please enter some text to generate QR code.");
     return;
   }
+ 
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(userInput)}&t=${Date.now()}`;
 
-  qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value; 
+  qrImage.src = qrUrl;
   imgBox.classList.add('show-img');
+
+  document.getElementById("resetbutton").style.display = "inline-block";
+}
+
+
+function resetPage () {
+  location.reload();
 }
