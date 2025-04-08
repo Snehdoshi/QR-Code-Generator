@@ -2,6 +2,12 @@ let imgBox = document.getElementById("imgBox");
 let qrImage = document.getElementById("qrImage");
 let qrText = document.getElementById("qrText");
 
+qrText.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    generateQR();
+  }
+});
+
 
  function generateQR () {
  const userInput = qrText.value.trim();
