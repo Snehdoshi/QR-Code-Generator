@@ -1,0 +1,90 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #000000, #2c003e, #4b0082, #8a2be2 , #CC5500);
+  background-size: 300% 300%;
+  animation: gradientBG 15s ease infinite;
+  color: black;
+  position: relative;
+}
+
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.stars {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    50vw 10vh white,
+    10vw 80vh white,
+    80vw 60vh white,
+    20vw 30vh white,
+    60vw 90vh white,
+    70vw 40vh white,
+    30vw 70vh white,
+    90vw 20vh white,
+    40vw 50vh white,
+    25vw 10vh white;
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.container{
+  width: 400px;
+  padding: 25px 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 10px;
+}
+
+.container p{
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.container input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #494eea;
+  outline: 0;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border-radius: 5px;
+}
+
+.container button {
+  width: 100%;
+  height: 50px;
+  background-color: #2c003e;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgb (0,0,0,0.1);
+  cursor: pointer;
+  margin: 20px 0;
+  font-weight: 650;
+}
